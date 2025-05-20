@@ -24,7 +24,4 @@ private:
 
     std::random_device rd;
     std::mt19937 gen;
-
-    bool isBallInArc(int ballX, int ballY, int cx, int cy, int r, double angle_start, double angle_size) const;
-    void drawArc(SDL_Renderer* renderer, int cx, int cy, int r, double angle_start, double angle_size) const;
 };

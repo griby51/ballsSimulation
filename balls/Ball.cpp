@@ -1,5 +1,5 @@
 #include "Ball.hpp"
-#include <SDL2/SDL2_gfxPrimitives.h>
+#include "SDL2_gfxPrimitives.h"
 #include <iostream>
 #include <string>
 

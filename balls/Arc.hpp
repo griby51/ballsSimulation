@@ -1,9 +1,11 @@
 #pragma once
 #include <SDL2/SDL.h>
-#include <SDL2/SDL2_gfxPrimitives.h>
+#include "SDL2_gfxPrimitives.h"
 
 class Arc {
 public:
+	Arc() = default;
+
 	Arc(int cx, int cy, int r, int w, double angle_start, double angle_size, float speed);
 
 	void update();
@@ -13,10 +15,11 @@ public:
 	void setSpeed(float speed);
 	void setAngles(double angle_start, double angle_size);
 
-private:
 	int centerX, centerY;
 	int radius, width;
 	double angleStart, angleSize;
+
+private:
 	float rotationSpeed;
 
 	bool sameSide(double x1, double y1, double x2, double y2, double px, double py, double qx, double qy) const;

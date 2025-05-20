@@ -1,5 +1,5 @@
 #include "Simulation1.hpp"
-#include <SDL2/SDL2_gfxPrimitives.h>
+#include "SDL2_gfxPrimitives.h""
 
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 800;
