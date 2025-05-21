@@ -10,7 +10,7 @@ public:
 
 	void update();
 	void draw(SDL_Renderer* renderer, SDL_Color color);
-	bool contains(int px, int py) const;
+	bool contains(int px, int py);
 
 	void setSpeed(float speed);
 	void setAngles(double angle_start, double angle_size);

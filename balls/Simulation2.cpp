@@ -1,5 +1,6 @@
 #include "Simulation2.hpp"
 #include "SDL2_gfxPrimitives.h"
+#include <iostream>
 
 const int WINDOW_WIDTH = 800;
 const int WINDOW_HEIGHT = 800;
@@ -53,7 +54,10 @@ void Simulation2::update() {
 	float dist = std::sqrt(dx * dx + dy * dy);
 
 	if (dist + ball.radius >= activeArc.radius) {
-		if (!activeArc.contains((int)ball.x, (int)ball.y) && !ball.hasExited) {
+
+		if (activeArc.contains(ball.x, ball.y)) std::cout << "Ball is inside the arc" << std::endl;
+
+		if (!activeArc.contains((int)ball.x, (int)ball.y)) {
 			float nx = dx / dist;
 			float ny = dy / dist;
 
