@@ -17,7 +17,7 @@ public:
 
 	int centerX, centerY;
 	int radius, width;
-	double angleStart, angleSize;
+	double angleStart, angleSize, angleEnd;
 
 private:
 	float rotationSpeed;

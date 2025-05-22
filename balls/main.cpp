@@ -19,7 +19,7 @@ int main() {
         simulation.update();
         simulation.render(renderer);
         SDL_RenderPresent(renderer);
-        SDL_Delay(16);
+		SDL_Delay(16);
     }
 
     SDL_DestroyRenderer(renderer);

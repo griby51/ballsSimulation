@@ -134,6 +134,7 @@
     <ClCompile Include="Arc.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Particle.cpp" />
     <ClCompile Include="Simulation1.cpp" />
     <ClCompile Include="Simulation2.cpp" />
   </ItemGroup>
@@ -141,6 +142,7 @@
     <ClInclude Include="..\..\..\..\..\..\libs\BBCSDL\include\SDL2_gfxPrimitives.h" />
     <ClInclude Include="Arc.hpp" />
     <ClInclude Include="Ball.hpp" />
+    <ClInclude Include="Particle.hpp" />
     <ClInclude Include="RandomUtils.hpp" />
     <ClInclude Include="Simulation.hpp" />
     <ClInclude Include="Simulation1.hpp" />

@@ -3,6 +3,7 @@
 #include "Ball.hpp"
 #include <vector>
 #include "Arc.hpp"
+#include "Particle.hpp"
 #include "RandomUtils.hpp"
 
 class Simulation2 : public Simulation {
@@ -19,6 +20,7 @@ private:
     Ball ball;
 
 	std::vector<Arc> arcs;
+	std::vector<Particle> particles;
 
     const double arc_speed = 1.0;
     bool running;
