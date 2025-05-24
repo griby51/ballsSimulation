@@ -11,12 +11,26 @@ const int CENTER_X = WINDOW_WIDTH / 2;
 const int CENTER_Y = WINDOW_HEIGHT / 2;
 const SDL_Color WHITE = { 255, 255, 255, 255 };
 
-Simulation1::Simulation1() : gameArc(CENTER_X, CENTER_Y, CIRCLE_RADIUS, 5, 0.0, 30.0, 1.0f), running(true), gen(rd()) {}
+Simulation1::Simulation1() : gameArc(CENTER_X, CENTER_Y, CIRCLE_RADIUS, 5, 0.0, 30.0, 1.0f), running(true), gen(rd()), BOUNCE_SFX(nullptr) {}
 
 void Simulation1::initialize() {
 	balls.clear();
 	newBalls.clear();
 	balls.emplace_back(CENTER_X, CENTER_Y, RandomUtils::randomFloat(-3, 3), RandomUtils::randomFloat(-3, 3), BALL_RADIUS, RandomUtils::randomColor());
+
+	char* basePath = SDL_GetBasePath();
+	if (basePath) {
+		executablePath = basePath;
+		SDL_free(basePath);
+	}
+	else {
+		std::cerr << "Failed to get base path: " << SDL_GetError() << std::endl;
+		return;
+	}
+	std::string bouncePath = executablePath + "bounce.wav";
+	BOUNCE_SFX = Mix_LoadWAV(bouncePath.c_str());
+
+	Mix_AllocateChannels(32);
 }
 
 void Simulation1::handleEvent(const SDL_Event& event) {
@@ -46,6 +60,7 @@ void Simulation1::update() {
 
 				ball.vx -= 2 * dot * nx;
 				ball.vy -= 2 * dot * ny;
+				Mix_PlayChannel(-1, BOUNCE_SFX, 0);
 			}
 			else {
 				ball.hasExited = true;
@@ -82,4 +97,9 @@ void Simulation1::render(SDL_Renderer* renderer) {
 
 bool Simulation1::isRunning() const {
 	return running;
+}
+
+Simulation1::~Simulation1() {
+	Mix_FreeChunk(BOUNCE_SFX);
+	Mix_CloseAudio();
 }
